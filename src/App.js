@@ -5,6 +5,9 @@ import Gallery from './components/Gallery';
 import ContactForm from './components/Contact';
 
 function App() {
+  //prevents contact form from showing initially on the homepage
+  const [contactSelected, setContactSelected] = useState(false);
+
   //categories array lifted to App componenet to be used as props
   const [categories] = useState([
     {
@@ -23,15 +26,24 @@ function App() {
 
   return (
     <div>
-      <Nav categories={categories}
-           setCurrentCategory={setCurrentCategory}
-           currentCategory={currentCategory} >
+      <Nav 
+        categories={categories}
+        setCurrentCategory={setCurrentCategory}
+        currentCategory={currentCategory}
+        contactSelected={contactSelected}
+        setContactSelected={setContactSelected} >
       </Nav>
       <main>
         <div>
-          <ContactForm></ContactForm>
-          <Gallery currentCategory={currentCategory}></Gallery>
-          <About></About>
+          {/*same as if/else statement....ternary operator*/}
+          {!contactSelected ? (
+            <>
+              <Gallery currentCategory={currentCategory}></Gallery>
+              <About></About>
+            </>
+          ) : (
+              <ContactForm></ContactForm>
+          )}
         </div>
       </main>
     </div>
