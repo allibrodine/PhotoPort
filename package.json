@@ -1,6 +1,6 @@
 {
-  "homepage": "http://allibrodine.github.io/PhotoPort",
-  "name": "photo",
+  "homepage": "https://allibrodine.github.io/PhotoPort",
+  "name": "PhotoPort",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
